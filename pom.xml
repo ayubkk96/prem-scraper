@@ -71,13 +71,43 @@
                 <artifactId>junit-jupiter-engine</artifactId>
                 <version>5.4.0</version>
             </dependency>
-    
-    
+            
     </dependencies>
-    
+    <build>
+    <plugins>
+            <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <version>2.4.1</version>
+            <configuration>
+                <!-- Get all project depenendicies -->
+                <descriptorRefs>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                </descriptorRefs>
+                <!-- MainClass in manifest make a executable jar -->
+                <archive> 
+                    <manifest>
+                        <mainClass>com.ayubkaoukaou.webscrapingproject</mainClass>
+                    </manifest>
+                </archive>  
+            </configuration>
+            <executions>
+                <execution>
+                    <id>make-assembly</id>
+                    <!-- bind to packaging phase -->
+                    <phase>package</phase>
+                    <goals>
+                        <goal>single</goal>
+                    </goals>
+                </execution>
+            </executions>
+            </plugin>
+        </plugins>
+        </build>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
+    <name>footballchatbot</name>
 </project>

@@ -5,8 +5,6 @@
  */
 package com.ayubkaoukaou.webscrapingproject.mavenproject1;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 
 public class NewMain {
@@ -15,25 +13,16 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws Exception {
-         
-        System.out.println("Github test");
-        /** Tell Spring to create and wire beans with annotations */
-      ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig.class);
-        
-        /** Get web scraper manager bean */
-        ScraperManager manager = (ScraperManager) context.getBean("scraperManager");
-        
-        /** Start the web scraping program */
-       manager.startScraping();
-        
-        
+
+        FootballChatbot sel = new FootballChatbot();
        
-        
-        
-        
-        
-        
- 
+//System.out.println(sel.alterLinkString("dog cat rat"));
+         sel.startChat();
+//            String nextGame = "Saturday 19 September 2020";
+//            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE d MMMM yyyy", Locale.ENGLISH);
+//            LocalDate date = LocalDate.parse(nextGame, formatter);
+//            
+
     }
-    
+
 }
